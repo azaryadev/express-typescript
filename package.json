@@ -24,15 +24,30 @@
     "typescript-eslint": "^8.31.1"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "D": "^1.0.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "husky": "^9.1.7",
+    "pretty-quick": "^4.1.1"
   },
   "scripts": {
     "start": "npx tsc -w",
     "dev": "npx nodemon",
     "lint": "npx eslint ./src --ext .ts",
     "lint:fix": "npx eslint ./src --ext .ts --fix",
-"build": "tsc && copyfiles .env build",
-    "prod": "node ./build/index.js"
+    "build": "tsc && copyfiles .env build",
+    "prod": "node ./build/index.js",
+    "format": "npx prettier . --write",
+    "prepare": "npx husky install",
+    "check-types": "npx tsc --noEmit --pretty",
+    "check-lint": "npx eslint . --ext ts --ext tsx --ext js",
+    "check-format": "npx prettier . --check"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged ng lint ng test",
+      "pre-push": "ng build --aot true"
+    }
   }
 }
