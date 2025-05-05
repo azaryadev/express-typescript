@@ -1,6 +1,6 @@
 // Import Express and its type definitions
 import express, {
-  type NextFunction,
+  // type NextFunction,
   type Request,
   type Response,
   type Application
@@ -15,7 +15,7 @@ const port: number =
   process.env.PORT != null ? parseInt(process.env.PORT) : 3000
 
 // Define route handler for the root path
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('Hello World')
 })
 

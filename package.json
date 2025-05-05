@@ -13,6 +13,8 @@
     "eslint": "^9.25.1",
     "eslint-config-import": "^0.13.0",
     "eslint-config-standard": "^17.1.0",
+    "eslint-import-resolver-typescript": "^4.3.4",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-standard": "^5.0.0",
@@ -39,7 +41,7 @@
     "build": "tsc && copyfiles .env build",
     "prod": "node ./build/index.js",
     "format": "npx prettier . --write",
-    "prepare": "npx husky install",
+    "prepare": "husky",
     "check-types": "npx tsc --noEmit --pretty",
     "check-lint": "npx eslint . --ext ts --ext tsx --ext js",
     "check-format": "npx prettier . --check"
